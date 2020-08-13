@@ -1,0 +1,43 @@
+<div id="menu-small" class="d-block d-sm-block d-md-block d-lg-none">
+    <a href="#" class="btn btn-light btn-sm">
+        <i class="fas fa-bars"></i>
+    </a>
+</div>
+
+<div id="menu-content" class="d-none d-sm-none d-md-none d-lg-block">
+    <div id="jquery-accordion-menu" class="jquery-accordion-menu">
+        <div class="text-center mt-3 mb-2">
+            <img src="{{base_url}}Public/images/logo.png" width="150" alt="Gestor - ERP Empresarial">
+        </div>
+        <ul>
+            <li><a href="{{base_url}}"><i class="fas fal fa-desktop"></i> Tela inicial </a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Cadastros </a>
+                <ul class="submenu">
+                    <li><a href="{{base_url}}person/?profile=CUSTOMER">Clientes</a></li>
+                    <li><a href="{{base_url}}person/?profile=USER">Funcionários</a></li>
+                    <li><a href="{{base_url}}person/?profile=ACCOUNT">Contas</a></li>
+                    <li>
+                        <a href="#">Configurações</a>
+                        <ul class="submenu">
+                            <li><a href="{{base_url}}permission">Permissões de acesso</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fas fa-bug"></i> Serviços</a>
+                <ul class="submenu">
+                    <li><a href="{{base_url}}job">Listagem</a></li>
+                    <li><a href="{{base_url}}job">Calendário</a></li>
+                    <li><a href="{{base_url}}job">Mapa</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fas fa-vials"></i>Produtos químicos </a>
+                <ul class="submenu">
+                    <li><a href="{{base_url}}product">Gestão de estoque</a></li>
+                    <li><a href="{{base_url}}chemicalGroup">Grupos químicos</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fas fa-cog"></i>Minha conta </a></li>
+        </ul>
+    </div>
+</div>
