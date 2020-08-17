@@ -38,3 +38,4 @@ function ocultar_login_sign_up() {
         document.querySelector(".cont_form_login").style.display = "none";
     }, 1200);
 }
+

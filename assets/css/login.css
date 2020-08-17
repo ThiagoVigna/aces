@@ -9,25 +9,40 @@ body{
 .clearfix:after{clear:both;display:block}
 a{color:inherit;text-decoration:none}
 
+#fundo-externo {
+	overflow: hidden; /* para que não tenha rolagem se a imagem de fundo for maior que a tela */
+	width: 100%;
+	height: 100%;
+	position: relative; /* criamos um contexto para posicionamento */
+}
 
+#fundo {
+	position: fixed; /* posição fixa para que a possível rolagem da tela não revele espaços em branco */
+	width: 100%;
+	height: 100%;
+}
+
+#fundo img {
+	width: 100%; /* com isso imagem ocupará toda a largura da tela. Se colocarmos height: 100% também, a imagem irá distorcer */
+	height: 100%;
+	position: absolute;
+}
 .login-wrap{
     width:100%;
-    margin:auto;
-    max-width:525px;
+	max-width:525px;
     min-height:670px;
     position:relative;
-    float: right;
-    margin-right: 5px;
-    margin-top: 70px;
+   /* float: right;*/
+	margin: 5px 5px 0 0;
 
 
 }
 .login-html{
     text-align: center;
-    width:75%;
-    height:75%;
+    width:100%;
+    height:100%;
     position:absolute;
-    padding:65px 50px 20px 50px;
+    padding:80px 60px 40px 60px;
     /*padding:90px 70px 50px 70px;*/
     background:rgba(40,57,101,.9);
 }
@@ -40,7 +55,7 @@ a{color:inherit;text-decoration:none}
     position:absolute;
     transform:rotateY(180deg);
     backface-visibility:hidden;
-    transition:all 1s linear;
+    transition:all 1s ease-in-out;
 }
 .login-html .sign-in,
 .login-html .sign-up,
@@ -53,7 +68,7 @@ a{color:inherit;text-decoration:none}
     text-transform:uppercase;
 }
 .login-html .tab{
-    font-size:18px;
+    font-size:22px;
     /*margin-right:15px;*/
     padding-bottom:1px;
     margin:0 15px 10px 0;
@@ -151,9 +166,9 @@ a{color:inherit;text-decoration:none}
     height:2px;
     margin:15px 0 12px 0;
     background:rgba(255,255,255,.2);
-	cursor: pointer;
-}
+	}
 .foot-lnk{
     text-align:center;
-
+	font-variant: all-petite-caps;
+	cursor: pointer;
 }
