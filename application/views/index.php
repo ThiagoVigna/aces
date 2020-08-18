@@ -92,13 +92,6 @@
 		</div>
 	</div>
 	<footer class="site-footer">
-<!--		<nav id="main-menu">-->
-<!--			<ul class="nav-bar">-->
-<!--				<li class="nav"><a href="#">Quem Somos</a></li>-->
-<!--				<li class="nav"><a href="#">Mapa do Site</a></li>-->
-<!--				<li class="nav"><a href="#">Serviços</a></li>-->
-<!--			</ul>-->
-<!--		</nav>-->
 		<nav>
 			<ul>
 				<li><a href="#">Quem Somos</a></li>
