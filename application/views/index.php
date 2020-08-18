@@ -14,12 +14,7 @@
 	<script src="<?php echo base_url('assets/js/index.js') ?>"></script>
 	<script src="https://kit.fontawesome.com/2d8a6015e9.js"></script>
 </head>
-<body>
-<div id="fundo-externo">
-	<div id="fundo">
-		<img src="<?php echo base_url('assets/images/wide.png') ?>" alt=""/>
-	</div>
-</div>
+<body id="container-imagem">
 <div class="cotn_principal">
 	<div class="row mr-0">
 		<div class="col-md-1"></div>
@@ -96,6 +91,26 @@
 			</div>
 		</div>
 	</div>
+	<footer class="site-footer">
+<!--		<nav id="main-menu">-->
+<!--			<ul class="nav-bar">-->
+<!--				<li class="nav"><a href="#">Quem Somos</a></li>-->
+<!--				<li class="nav"><a href="#">Mapa do Site</a></li>-->
+<!--				<li class="nav"><a href="#">Serviços</a></li>-->
+<!--			</ul>-->
+<!--		</nav>-->
+		<nav>
+			<ul>
+				<li><a href="#">Quem Somos</a></li>
+				<li><a href="#">Mapa do Site</a></li>
+				<li><a href="#">Serviços</a></li>
+			</ul>
+		</nav>
+		<div class="line"></div>
+
+		<p class="ml-5 pt-2 company">ACES Comunity</p>
+		<p class="ml-5 company">&copy 2020</p>
+	</footer>
 </div>
 </body>
 </html>
