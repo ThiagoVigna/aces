@@ -1,25 +1,26 @@
 <!-- header.php -->
 <nav class="navbar navbar-expand navbar-light bg-light shadow">
-	<ul class="navbar-nav mr-auto">
+	<div class="col-2 ml-0 mr-0">
+		<img class="header-top-container" src="<?= base_url('assets/images/logo.png'); ?>" alt="ACES English">
+	</div>
+	<ul class="navbar-nav ml-0">
 		<li class="nav-item pt-0">
 			<a class="nav-link active" href="#"><i class="fas fa-home h2 text-dark"></i></a>
 		</li>
 		<li class="nav-item pt-2">
 			<a href="/" class="btn btn-link border-0">
 				<i class="fas fa-bell h4 text-dark"></i>
-				<sub><span class="badge badge-danger badge-with-icon">123</span></sub>
+				<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>
 			</a>
 		</li>
 		<li class="nav-item pt-2">
 			<a href="/" class="btn btn-link border-0">
 				<i class="fas fa-envelope h4 text-dark"></i>
-				<sub><span class="badge badge-danger badge-with-icon">123</span></sub>
+				<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>
 			</a>
 		</li>
 	</ul>
-	<div class="text-center ">
-		<img class="header-top-container" src="<?= base_url('assets/images/logo.png'); ?>" alt="ACES English">
-	</div>
+
 
 	<form class="form-inline ml-auto">
 

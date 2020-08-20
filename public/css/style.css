@@ -49,5 +49,48 @@
 	position: relative;
 	width: 150px;
 	height: auto;
+}
 
+#fbar {
+	background: #f2f2f2;
+	line-height: 40px;
+	min-width: 1261px;
+	border-top: 1px solid #e4e4e4;
+	text-align: center;
+}
+.fbar p,.fbar a,#fsettl,#fsett a {
+	color: #5f6368;
+	text-align: center;
+}
+
+.fbar a:hover,#fsett a:hover {
+	color: #333
+}
+
+.fbar {
+	font-size: 14px;
+}
+
+.fmenu {
+	padding-left: 27px;
+	margin: 0 !important;
+}
+
+.ffbar {
+	margin-left: 180px;
+
+}
+.test-page {
+	color: black;
+	font-family: 'Exo', sans-serif;
+	padding-right: 50px;
+	float: right;
+}
+.company{
+	position: relative;
+	font-family: 'Exo', sans-serif;
+	line-height: 2px;
+	padding-left: 20px;
+	color: white;
+	float: left;
 }

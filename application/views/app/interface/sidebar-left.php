@@ -14,29 +14,29 @@
 				</div>
 				<div class="col-4 text-center">
 					<a href="/">
-						<i class="fas fa-user h4 text-muted"></i>
+						<i class="fas fa-comment h4 text-muted"></i>
 						<sub>
-							<span class="badge badge-info badge-with-icon">123</span>
+							<span class="badge badge-pill badge-info badge-with-icon">123</span>
 						</sub> <br>
-						<small>Mensagens</small>
+						<small>Comentários</small>
 					</a>
 				</div>
 				<div class="col-4 text-center">
 					<a href="/">
-						<i class="fas fa-user h4 text-muted"></i>
+						<i class="fas fa-users h4 text-muted"></i>
 						<sub>
-							<span class="badge badge-info badge-with-icon">123</span>
+							<span class="badge badge-pill badge-info badge-with-icon">123</span>
 						</sub> <br>
-						<small>Curtidas</small>
+						<small>Seguindo</small>
 					</a>
 				</div>
 				<div class="col-4 text-center">
 					<a href="/">
-						<i class ="fas fa-user h4 text-muted"></i>
+						<i class ="fas fa-user-friends h4 text-muted"></i>
 						<sub>
-							<span class="badge badge-info badge-with-icon">123</span>
+							<span class="badge badge-pill badge-info badge-with-icon">123</span>
 						</sub> <br>
-						<small>Tarefas</small>
+						<small>Seguidores</small>
 					</a>
 				</div>
 			</div>

@@ -28,5 +28,7 @@
 	</div>
 	<script type="application/javascript" src="<?= base_url('assets/bootstrap/js/boostrap.js'); ?>"></script>
 	<script src="https://kit.fontawesome.com/fa99289863.js" crossorigin="anonymous"></script>
+	<?php $this->load->view('app/interface/footer'); ?>
 </body>
+
 </html>
