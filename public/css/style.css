@@ -44,3 +44,10 @@
 	height: 1em;
 	vertical-align: -.125em;
 }
+
+.header-top-container {
+	position: relative;
+	width: 150px;
+	height: auto;
+
+}

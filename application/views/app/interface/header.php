@@ -16,9 +16,13 @@
 				<sub><span class="badge badge-danger badge-with-icon">123</span></sub>
 			</a>
 		</li>
-
 	</ul>
+	<div class="text-center ">
+		<img class="header-top-container" src="<?= base_url('assets/images/logo.png'); ?>" alt="ACES English">
+	</div>
+
 	<form class="form-inline ml-auto">
+
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Busca" aria-label="Search" aria-describedby="search">
 			<div class="input-group-append">
