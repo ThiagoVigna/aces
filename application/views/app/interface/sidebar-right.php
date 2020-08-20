@@ -28,4 +28,11 @@
 			Languages <a href="#">Português (Bra)</a>
 		</div>
 	</div>
-</div>
+	<!-------------------------------------------------------------------->
+
+
+		<div class="toggle-container">
+			<h6>Light / Dark Mode</h6>
+			<input type="checkbox" id="switch" name="theme"/><label for="switch"></label>
+		</div>
+
