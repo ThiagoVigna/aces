@@ -28,6 +28,7 @@
 	</div>
 	<script type="application/javascript" src="<?= base_url('assets/bootstrap/js/bootstrap.js'); ?>"></script>
 	<script type="application/javascript" src="<?= base_url('public/js/night.js'); ?>"></script>
+	<script type="application/javascript" src="<?= base_url('public/js/gamification.js'); ?>"></script>
 	<script src="https://kit.fontawesome.com/fa99289863.js" crossorigin="anonymous"></script>
 
 	<?php $this -> load -> view('app/interface/footer'); ?>

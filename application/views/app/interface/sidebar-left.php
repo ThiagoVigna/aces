@@ -1,14 +1,21 @@
 <!-- sidebar-left.php -->
 <div class="col-md-3 mb-3">
 	<div class="card shadow mb-3">
-		<img class="card-img-top" src="https://picsum.photos/800/400?image=1019" alt="">
+		<img class="card-img-top" src="https://picsum.photos/800/400?image=10" alt="">
 		<div class="card-body">
 			<div class="row">
 				<div class="col-12">
-					<img src="https://picsum.photos/200/200?image=718"
-						 class="rounded-circle position-absolute my-pic" width="70" alt="">
-					<h4 class="mb-0"><a href="#" class="text-body">Lorem Ipsum</a></h4>
+					<!--					<img src="https://picsum.photos/200/200?image=718"-->
+					<!--						 class="rounded-circle position-absolute my-pic" width="70" alt="">-->
+					<div
+						 data-knob-percentage="90" data-knob-timing="2"
+						 data-knob-image="https://www.repstatic.it/content/nazionale/img/2013/05/02/134208038-44282337-179a-4a93-a7d8-60d23fb725b7-th.jpg"
+						 data-knob-dotimage="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png"
+						 data-knob-gradient1="#FFD700" data-knob-gradient2="red" data-knob-dotcolor="#f00"
+						 data-knob-color="#efefef" class="iesknob circle1 position-relative my-pic"></div>
+					<h4 class="mb-0 mt-0"><a href="#" class="text-body">Lorem Ipsum</a></h4>
 					<a href="#" class="text-muted"><h6>@LoremIpsum</h6></a>
+
 
 					<hr>
 				</div>
@@ -17,7 +24,16 @@
 						<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 							 width="30" height="30"
 							 viewBox="0 0 172 172"
-							 style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-size="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#032467"><path d="M86,16.125c-20.36621,0 -38.88477,5.98389 -52.57422,15.99903c-13.71045,9.99414 -22.67578,24.35547 -22.67578,40.43847c0,19.50537 13.29053,36.0083 32.25,45.96045v37.35205l36.26026,-27.21094c2.20459,0.16797 4.43018,0.33594 6.73974,0.33594c20.36621,0 38.88477,-5.98389 52.57422,-15.97803c13.71045,-10.01514 22.67578,-24.37646 22.67578,-40.45947c0,-16.08301 -8.96533,-30.44433 -22.67578,-40.43847c-13.68945,-10.01514 -32.20801,-15.99903 -52.57422,-15.99903zM86,26.875c18.22461,0 34.64356,5.45898 46.2334,13.92041c11.58984,8.46143 18.2666,19.65234 18.2666,31.76709c0,12.11474 -6.67676,23.30567 -18.2666,31.76709c-11.58984,8.46143 -28.00879,13.92041 -46.2334,13.92041c-2.64551,0 -5.29102,-0.14697 -7.93652,-0.39893l-2.05762,-0.16797l-22.25586,16.6919v-22.25586l-3.10742,-1.42773c-18.01465,-8.46143 -29.14258,-22.61279 -29.14258,-38.12891c0,-12.11474 6.67676,-23.30566 18.2666,-31.76709c11.58984,-8.46143 28.00879,-13.92041 46.2334,-13.92041z"></path></g></g></svg>
+							 style=" fill:#000000;">
+							<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+							   stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+							   font-family="none" font-size="none" style="mix-blend-mode: normal">
+								<path d="M0,172v-172h172v172z" fill="none"></path>
+								<g fill="#032467">
+									<path d="M86,16.125c-20.36621,0 -38.88477,5.98389 -52.57422,15.99903c-13.71045,9.99414 -22.67578,24.35547 -22.67578,40.43847c0,19.50537 13.29053,36.0083 32.25,45.96045v37.35205l36.26026,-27.21094c2.20459,0.16797 4.43018,0.33594 6.73974,0.33594c20.36621,0 38.88477,-5.98389 52.57422,-15.97803c13.71045,-10.01514 22.67578,-24.37646 22.67578,-40.45947c0,-16.08301 -8.96533,-30.44433 -22.67578,-40.43847c-13.68945,-10.01514 -32.20801,-15.99903 -52.57422,-15.99903zM86,26.875c18.22461,0 34.64356,5.45898 46.2334,13.92041c11.58984,8.46143 18.2666,19.65234 18.2666,31.76709c0,12.11474 -6.67676,23.30567 -18.2666,31.76709c-11.58984,8.46143 -28.00879,13.92041 -46.2334,13.92041c-2.64551,0 -5.29102,-0.14697 -7.93652,-0.39893l-2.05762,-0.16797l-22.25586,16.6919v-22.25586l-3.10742,-1.42773c-18.01465,-8.46143 -29.14258,-22.61279 -29.14258,-38.12891c0,-12.11474 6.67676,-23.30566 18.2666,-31.76709c11.58984,-8.46143 28.00879,-13.92041 46.2334,-13.92041z"></path>
+								</g>
+							</g>
+						</svg>
 						<sub>
 							<span class="badge badge-pill badge-info badge-with-icon">123</span>
 						</sub> <br>
