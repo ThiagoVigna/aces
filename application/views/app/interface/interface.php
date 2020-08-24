@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.css'); ?>">
 	<link rel="stylesheet" href="<?= base_url('public/css/bootstrap-hack.css'); ?>">
 	<link rel="stylesheet" href="<?= base_url('public/css/style.css'); ?>">
+	<link rel="stylesheet" href="<?= base_url('public/css/footer-basic.css'); ?>">
 
 </head>
 <body>
