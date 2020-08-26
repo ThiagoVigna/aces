@@ -119,7 +119,7 @@ a{color:inherit;text-decoration:none}
     -webkit-text-security:circle;
 }
 .login-form .group .label{
-    color:#aaa;
+    color: #ffffff;
     font-size:12px;
 }
 .login-form .group .button{
@@ -239,3 +239,34 @@ li a:hover {
 }
 
 /-----------------/
+@media (min-width:768px) {
+	header.masthead .intro-text .intro-lead-in {
+		font-size: 40px;
+		font-style: italic;
+		line-height: 40px;
+		margin-bottom: 25px;
+		font-family: Droid Serif,Helvetica Neue,Helvetica,Arial,sans-serif;
+	}
+}
+
+header.masthead .intro-text .intro-lead-in {
+	font-size: 22px;
+	font-style: italic;
+	line-height: 22px;
+	margin-bottom: 25px;
+	font-family: Droid Serif,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+header.masthead {
+	text-align: center;
+	color: #fff;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: 50%;
+	background-size: cover;
+}
+
+.pad {
+	margin-top: auto;
+	margin-bottom: auto;
+}

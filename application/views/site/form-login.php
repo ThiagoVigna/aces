@@ -18,7 +18,7 @@
 <div class="cotn_principal col-12">
 	<div class="row mr-2">
 		<div class="col-md-1"></div>
-		<div class="col-md-6 mt-5 ">
+		<div class=" col-md-6 pad text-uppercase">
 			<h1 class="text-white">A maior comunidade de inglês do Brasil</h1>
 			<p class="text-white">Cadastre-se e participe da maior comunidade de inglês do Brasil.
 				Conheça gente interessante, aprimore seu inglês e amplie seu <i> networking.</i></p>
@@ -33,9 +33,9 @@
 				<div class="pt-5">
 					<div class="login-wrap">
 						<div class="login-html">
-							<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
+							<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab" style="color: white">Sign
 								In</label>
-							<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign
+							<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="color: white">Sign
 								Up</label>
 							<div class="login-form">
 								<div class="sign-in-htm">
