@@ -28,6 +28,7 @@
 			<?php $this -> load -> view('app/interface/sidebar-right'); ?>
 		</div>
 	</div>
+	<script type="application/javascript" src="<?= base_url('assets/jquery-3.4.1/jquery.min.js'); ?>"></script>
 	<script type="application/javascript" src="<?= base_url('assets/bootstrap/js/bootstrap.js'); ?>"></script>
 	<script type="application/javascript" src="<?= base_url('public/js/night.js'); ?>"></script>
 	<script type="application/javascript" src="<?= base_url('public/js/gamification.js'); ?>"></script>

@@ -91,9 +91,7 @@
   background: none;
   border: none;
   border-bottom: 1px solid transparent;
-  border-radius: 0;
-  color: #ccc;
-  box-shadow: none;
+  border-radius: 0;box-shadow: none;
   color: inherit;
   transition: border-bottom-color 0.3s;
 }
