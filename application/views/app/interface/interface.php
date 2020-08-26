@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="<?= base_url('public/css/bootstrap-hack.css'); ?>">
 	<link rel="stylesheet" href="<?= base_url('public/css/style.css'); ?>">
 	<link rel="stylesheet" href="<?= base_url('public/css/footer-basic.css'); ?>">
+	<link rel="stylesheet" href="<?= base_url('public/css/Navigation.css'); ?>">
 
 </head>
 <body>
