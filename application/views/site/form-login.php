@@ -101,7 +101,7 @@
 		</nav>
 		<div class="line"></div>
 		<div class="test-page"> Powered By: <b>dotCREATIVE</b> </div>
-		<p class="ml-5 pt-2 company">ACES Comunity</p>
+		<p class="ml-5 pt-2 company">ACES Community</p>
 		<p class="ml-5 company">&copy 2020</p>
 
 
