@@ -1,6 +1,6 @@
 <!-- header.php -->
-<nav class="navbar navbar-expand-md navbar-light bg-light shadow ">
-	<div class="container">
+<nav class="navbar navbar-expand-md navbar-light bg-light shadow  ">
+	<div class="container " style="margin-left: 0">
 		<a class="navbar-brand" href="#"><img src="<?= base_url('assets/images/logo.png'); ?>" style="width: 150px;"
 											  alt="Logo"></a>
 		<button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
@@ -69,10 +69,17 @@
 				<a class="dropdown-item" href="#">
 					<i class="fas fa-cog"></i> Configuração
 				</a>
+				<hr>
+				<div class="toggle-container">
+					<h6>Modo escuro</h6>
+					<input type="checkbox" id="switch" name="theme"/><label for="switch"></label>
+				</div>
+
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#">
 					<i class="fas fa-sign-out-alt"></i> Sair
 				</a>
+
 			</div>
 		</li>
 	</ul>
