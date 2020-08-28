@@ -37,10 +37,10 @@
 								In</label>
 							<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="color: white">Sign
 								Up</label>
-							<div class="login-form">
+							<div class="login-form" method="POST" action="<?php echo base_url('application/models/user_model.php') ?>">
 								<div class="sign-in-htm">
 									<div class="group">
-										<label for="user" class="label">Username</label>
+										<label  type="email" for="user" class="label">Username</label>
 										<input id="user" type="text" class="input">
 									</div>
 									<div class="group">
@@ -61,7 +61,11 @@
 								</div>
 								<div class="sign-up-htm">
 									<div class="group">
-										<label for="user" class="label">Username</label>
+										<label for="user" class="label">Fistname</label>
+										<input id="user" type="text" class="input">
+									</div>
+									<div class="group">
+										<label for="user" class="label">Lastname</label>
 										<input id="user" type="text" class="input">
 									</div>
 									<div class="group">
