@@ -8,7 +8,7 @@
 					<div data-knob-percentage="90" data-knob-timing="2"
 						 data-knob-image="https://www.repstatic.it/content/nazionale/img/2013/05/02/134208038-44282337-179a-4a93-a7d8-60d23fb725b7-th.jpg"
 						 data-knob-dotimage=""
-						 data-knob-gradient1="#FFD700" data-knob-gradient2="red" data-knob-dotcolor="#f00"
+						 data-knob-gradient1="#032467" data-knob-gradient2="red" data-knob-dotcolor="#f00"
 						 data-knob-color="#efefef" class="iesknob circle1 position-relative my-pic"></div>
 					<h4 class="mb-0 mt-0"><a href="#" class="text-body">Lorem Ipsum</a></h4>
 					<a href="#" class="text-muted"><h6>@LoremIpsum</h6></a>
