@@ -2,6 +2,11 @@
 
 class Site extends AE_Controller{
 
+	private $load;
+	private $form_validation;
+	private $email;
+	private $input;
+
 	function __construct(){
 		parent ::__construct();
 		$this -> load -> helper('url');
