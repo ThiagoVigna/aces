@@ -37,7 +37,7 @@
 								In</label>
 							<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="color: white">Sign
 								Up</label>
-							<div class="login-form" method="POST" action="<?php echo base_url('application/models/user_model.php') ?>">
+							<div class="login-form" method="POST" action="<?php echo base_url('application/controller/Singup.php') ?>">
 								<div class="sign-in-htm">
 									<div class="group">
 										<label  type="email" for="user" class="label">Username</label>

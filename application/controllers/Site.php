@@ -2,10 +2,10 @@
 
 class Site extends AE_Controller{
 
-	private $load;
-	private $form_validation;
-	private $email;
-	private $input;
+	public $load;
+	public $form_validation;
+	public $email;
+	public $input;
 
 	function __construct(){
 		parent ::__construct();
