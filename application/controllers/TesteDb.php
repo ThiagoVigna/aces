@@ -13,7 +13,9 @@ class TesteDb extends CI_Controller
 	}
 
 	public function index(){
-		$data["person"] = $this->model->form_validation();
+		$data["person"] = $this->model->validation();
+
+		print_r($data);
 		print_r($data);
 	}
 
