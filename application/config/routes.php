@@ -53,6 +53,7 @@ $route['default_controller'] = 'site';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//$route['quem_somos'] = 'pagina/quem_somos';
+
+$route['app'] = 'app/dashboard';
 //$route['mapa'] = 'pagina/mapa';
 //$route['servicos'] = 'pagina/servicos';

@@ -1,4 +1,13 @@
 <?php
+require_once('application/helpers/Helpers/Notification.php');
+require_once('application/helpers/Validation/Validator.php');
+require_once('application/helpers/Validation/DateAndTimeValidator.php');
+require_once('application/helpers/Validation/DocumentsValidator.php');
+require_once('application/helpers/Validation/EnumValidator.php');
+require_once('application/helpers/Validation/IntValidator.php');
+require_once('application/helpers/Validation/StringValidator.php');
+
+
 /**
  * CodeIgniter
  *

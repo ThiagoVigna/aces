@@ -42,7 +42,6 @@ class Auth{
 		$this->CI->load->model('crud');
 
 		self::get_logged_account();
-
 	}
 
 	/**
@@ -64,26 +63,22 @@ class Auth{
 			else:
 				$sql = <<<SQL
 SELECT
-		CONCAT(p.First_Name, ' ', p.Last_Name) as FullName
-	
+  		p.Id
+	,	CONCAT(p.First_Name, ' ', p.Last_Name) as FullName
 	,	c.Email
-	,	c.`Password`
 FROM `credentials` c
 LEFT JOIN person p ON p.Id = c.PersonId
 
 WHERE
-		c.Email = ?
-	AND c.`Password` = ?
+		c.Email = "{$this->dataToAutentication['Email']}"
+	AND c.Password = "{$this->dataToAutentication['Password']}"
 	AND c.IsActive = 'YES'
 
 LIMIT 1
 SQL;
 
-				//$this->CI->db->query($sql, $this->dataToAutentication);
-				$this->CI->db->where($this->dataToAutentication);
-				$this->CI->db->from('credentials');
-				$query = $this->CI->db->get();
-				$this->user_data = $query->row();
+				$result = $this->CI->db->query($sql);
+				$this->user_data = $result->row();
 
 				if( !is_null($this->flash_data_message) ) $this->CI->session->set_flashdata('notif', $this->flash_data_message);
 
@@ -96,27 +91,6 @@ SQL;
 					$this->CI->session->set_flashdata('notif', $this->flash_data_message);
 					redirect(base_url());
 				endif;
-
-//				self::get_account();
-//				self::get_last_payment();
-
-				// valida pagamento em aberto.
-
-				/*
-				// Registra acesso do usuário
-				$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-				$access = array(
-					'user_id'       => $this->user_data->user_id,
-					'date'          => date('Y-m-d'),
-					'hour'          => date('h:i:s'),
-					'activity'      => $actual_link,
-					'address_ip'    => $_SERVER['REMOTE_ADDR'],
-				);
-				$this->CI->crud->save('users_access', $access);
-
-				setcookie("user_logged",TRUE,time()+1000);
-				*/
 			endif;
 		endif;
 	}
@@ -159,8 +133,8 @@ SQL;
 	 * @properties Array $data_session
 	 */
 	private $dataToAutentication = array(
-		'email' => NULL,
-		'password' => NULL // senha já criptografada
+		'Email' => NULL,
+		'Password' => NULL // senha já criptografada
 	);
 
 	/**
@@ -174,11 +148,11 @@ SQL;
 	 */
 	private function set_data_session($user_email, $user_password, $encrypt_password = FALSE) {
 		// Seta dados em variavel para uso ainda nesta sessão
-		$this->dataToAutentication['email'] = $user_email;
-		$this->dataToAutentication['password'] = (!$encrypt_password) ? $user_password : md5($user_password);
+		$this->dataToAutentication['Email'] = $user_email;
+		$this->dataToAutentication['Password'] = (!$encrypt_password) ? $user_password : md5($user_password);
 
 		// Armazena dados em sessão para uso posterior
-		$this->CI->session->set_userdata('email', $this->dataToAutentication['email']);
+		$this->CI->session->set_userdata('email', $this->dataToAutentication['Email']);
 		$this->CI->session->set_userdata('password', (!$encrypt_password) ? $user_password : md5($user_password));
 	}
 
@@ -188,7 +162,7 @@ SQL;
 	 * @return mixed
 	 */
 	private function check_data_session(){
-		return ($this->dataToAutentication['email'] == NULL or $this->dataToAutentication['password'] == NULL) ? FALSE : TRUE;
+		return ($this->dataToAutentication['Email'] == NULL or $this->dataToAutentication['Password'] == NULL) ? FALSE : TRUE;
 	}
 
 	/**
@@ -239,28 +213,7 @@ SQL;
 			return FALSE;
 		else:
 			$this->set_data_session($sess['email'], $sess['password'], TRUE);
-
 			return TRUE;
-		endif;
-	}
-
-	private function get_last_payment(){
-		$where['account_id'] = $this->user_data->account_id;
-		$where['status'] = 'wait payment';
-
-		$this->last_payment = $this->CI->crud->consult('account_payments', $where, TRUE, 'p', FALSE, '1');
-
-		// Redireciona usuário para página de pagamento caso a fatura já tenha ultrapassado a data do vencimento.
-		if( $this->last_payment != FALSE and $this->last_payment->date_due < date('Y-m-d') and $this->CI->uri->segment(3) != 'signature' and $this->user_data->ecology_staff == 'no' ):
-			redirect(base_url('app/system_config/signature'));
-		endif;
-	}
-
-	public function get_payment_data($data){
-		if( $this->last_payment == NULL ):
-			return NULL;
-		else:
-			return $this->last_payment->$data;
 		endif;
 	}
 
@@ -281,9 +234,5 @@ SQL;
 		else:
 			return $this->account->$data;
 		endif;
-	}
-
-	public function get_plan(){
-		$this->plan = $this->CI->crud->consult('plans', ['plan_id'=>$this->account->plan_id], TRUE);
 	}
 };

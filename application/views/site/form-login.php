@@ -37,8 +37,7 @@
 								In</label>
 							<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="color: white">Sign
 								Up</label>
-							<form class="login-form" method="POST" action="<?php echo base_url('app/dashboard') ?>">
-
+							<form class="login-form" method="POST" action="<?php echo base_url('app/dashboard')?>">
 								<div class="sign-in-htm">
 									<div class="group">
 										<label  type="email" for="user" class="label">Username</label>
@@ -61,7 +60,7 @@
 									</div>
 								</div>
 							</form>
-							<form>
+							<form class="login-form" method="POST" action="<?php echo base_url('app/dashboard') ?>">
 								<div class="sign-up-htm">
 									<div class="group">
 										<label for="user" class="label">Fistname</label>

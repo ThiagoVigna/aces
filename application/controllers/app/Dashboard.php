@@ -3,7 +3,9 @@
 class Dashboard extends AE_Controller{
 
 	public function index(){
+
 		$dados['titulo'] = 'ACES English';
+		$dados['subview'] = 'app/dashboard/body';
 
 		$this->load->view('app/interface/interface', $dados);
 

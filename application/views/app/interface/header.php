@@ -1,7 +1,7 @@
 <!-- header.php -->
 <nav class="navbar navbar-expand-md navbar-light bg-light shadow  ">
 	<div class="container " style="margin-left: 0">
-		<a class="navbar-brand" href="#"><img src="<?= base_url('assets/images/logo.png'); ?>" style="width: 150px;"
+		<a class="navbar-brand" href="<?= base_url('app'); ?>"><img src="<?= base_url('assets/images/logo.png'); ?>" style="width: 150px;"
 											  alt="Logo"></a>
 		<button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
 			<span class="sr-only">Toggle navigation</span>
@@ -11,7 +11,7 @@
 				class="collapse navbar-collapse" id="navcol-1">
 			<ul class="nav navbar-nav">
 				<li class="nav-item" role="presentation">
-					<a class="btn btn-link border-0" href="#">
+					<a class="btn btn-link border-0" href="<?= base_url('app'); ?>">
 						<span class="d-none d-sm-none d-md-block">
 							<img src="<?= base_url('public/images/icons-home.png') ?>">
 						</span>
@@ -76,7 +76,7 @@
 				</div>
 
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">
+				<a class="dropdown-item" href="<?= base_url(); ?>">
 					<i class="fas fa-sign-out-alt"></i> Sair
 				</a>
 

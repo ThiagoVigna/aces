@@ -10,8 +10,8 @@
 						 data-knob-dotimage=""
 						 data-knob-gradient1="#032467" data-knob-gradient2="red" data-knob-dotcolor="#f00"
 						 data-knob-color="#efefef" class="iesknob circle1 position-relative my-pic"></div>
-					<h4 class="mb-0 mt-0"><a href="#" class="text-body">Lorem Ipsum</a></h4>
-					<a href="#" class="text-muted"><h6>@LoremIpsum</h6></a>
+					<h4 class="mb-0 mt-0"><a href="#" class="text-body"><?= $this->auth->get_user_data('FullName'); ?></a></h4>
+					<a href="#" class="text-muted"><h6><?= $this->auth->get_user_data('Email'); ?></h6></a>
 					<hr>
 				</div>
 				<div class="col-4 text-center">
@@ -55,4 +55,19 @@
 			<a href="#">Mais</a>
 		</div>
 	</div>
+	<div class="card shadow mb-3 radio">
+		<div class="card-body">
+			<!--			&copy; 2020 ACES Community Networking-->
+			<?php $this -> load -> view('app/interface/footer'); ?>
+		</div>
+		<div class="card-footer">
+			<div class="text-center">
+				<strong class="d-flex flex-grow-1 flex-fill justify-content-center" data-toggle="tooltip" data-bs-tooltip=""
+						style="font-size: 12px;line-height: 5px;letter-spacing: 8px;"><br>ACES Community ©
+					2020<br><br></strong>
+				<b class="d-inline d-lg-flex justify-content-lg-center align-items-lg-center"
+				   style="font-size: 9px;">Powered by: dotCREATIVE</b></div>
+		</div>
+	</div>
+
 </div>

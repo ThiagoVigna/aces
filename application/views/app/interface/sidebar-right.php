@@ -56,14 +56,7 @@
 			<br>
 		</div>
 	</div>
-	<div class="card shadow mb-3 radio">
-		<div class="card-body">
-			&copy; 2020 ACES Community Networking
-		</div>
-		<div class="card-footer">
-			Languages <a href="#">Português (Bra)</a>
-		</div>
-	</div>
+
 	<!-------------------------------------------------------------------->
 
 
