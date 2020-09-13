@@ -8,6 +8,6 @@
 	<title><?= $titulo; ?></title>
 </head>
 <body>
-
+	<?php $this->load->view($subview); ?>
 </body>
 </html>

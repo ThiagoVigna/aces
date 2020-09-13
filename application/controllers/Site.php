@@ -22,6 +22,7 @@ class Site extends AE_Controller{
 	public function quem_somos()
 	{
 		$this->dataView['titulo'] = ' Quem Somos';
+		$this->dataView['subview'] = 'site/quem_somos';
 
 		$this -> load -> view('site/interface', $this->dataView);
 	}

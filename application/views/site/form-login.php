@@ -100,7 +100,7 @@
 	<footer class="site-footer">
 		<nav>
 			<ul>
-				<li><a href="#">Quem Somos</a></li>
+				<li><a href="<?= base_url('site/quem_somos') ?>">Quem Somos</a></li>
 				<li><a href="#">Mapa do Site</a></li>
 				<li><a href="#">Serviços</a></li>
 			</ul>
