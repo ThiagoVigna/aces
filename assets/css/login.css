@@ -5,13 +5,13 @@ body{
     font:600 16px 'Open Sans',sans-serif;
 }
 *,:after,:before{box-sizing:border-box}
-.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after,.clearfix:before{content:'';display:inline}
 .clearfix:after{clear:both;display:block}
 a{color:inherit;text-decoration:none}
 
 #container-imagem {
 	position: relative;
-	height: 110vh;
+	height: 100vh;
 	width: 98vw;
 	/* adicionando imagem de fundo */
 	background: url('../images/wide.png');
@@ -31,14 +31,6 @@ a{color:inherit;text-decoration:none}
 	color: #ffffff;
 	/*text-shadow: 1px 1px 1px #ea0a0a;*/
 }
-
-.nav-bar .nav-button-home a { background:url("https://www.cheesetoast.co.uk/cheesepress/wp-content/uploads/2012/08/home.gif") no-repeat 0 -2px transparent; }
-
-.nav-bar .nav-button-services a { background:url("https://www.cheesetoast.co.uk/cheesepress/wp-content/uploads/2012/08/services.gif") no-repeat 0 -2px transparent; }
-
-.nav-bar .nav-button-products a { background:url("https://www.cheesetoast.co.uk/cheesepress/wp-content/uploads/2012/08/products.gif") no-repeat 0 -2px transparent; }
-
-/* Icons courtesy of Thom : http://pixelb.in/assorted-pixel-perfect-14px-icon-set-286/ */
 
 .login-wrap{
     width:100%;
@@ -270,3 +262,4 @@ header.masthead {
 	margin-top: auto;
 	margin-bottom: auto;
 }
+
