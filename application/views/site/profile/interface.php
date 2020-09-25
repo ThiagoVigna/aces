@@ -19,19 +19,9 @@
 	</div>
 </div>
 
-<?php $this -> load -> view('app/interface/header'); ?>
+<?php $this -> load -> view('profile'); ?>
 
-<div class="container-fluid mt-3">
-	<div class="row">
-		<?php $this -> load -> view('app/interface/sidebar-left'); ?>
 
-		<div class="col-md-6">
-			<?php $this -> load -> view($subview); ?>
-		</div>
-
-		<?php $this -> load -> view('app/interface/sidebar-right'); ?>
-	</div>
-</div>
 
 <!-- Modal com conteúdo dinamico-->
 <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
@@ -46,10 +36,11 @@
 <script type="application/javascript" src="<?= base_url('assets/bootstrap/js/bootstrap.js'); ?>"></script>
 <script src="https://kit.fontawesome.com/fa99289863.js" crossorigin="anonymous"></script>
 
-<!-- Sempre deverá ser o último a ser carregado -->
+<!-- Sempre deverá ser o último a ser carregado -->.
 <script type="application/javascript" src="<?= base_url('public/js/_MinifyJS.js?update='.date('his')); ?>"></script>
 
 
 </body>
 
 </html>
+

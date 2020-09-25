@@ -28,20 +28,12 @@ class StringValidator extends Validator{
         if(strpos($val, $text)) Notification::SetNotification($property, $messageIfFalse);
     }
 
-    public static function AreEquals(string $val, string $text, string $property, string $messageIfFalse) {
-        if($val == $text) Notification::SetNotification($property, $messageIfFalse);
-    }
-
-    public static function AreNotEquals(string $val, string $text, string $property, string $messageIfFalse) {
-        if($val != $text) Notification::SetNotification($property, $messageIfFalse);
-    }
-
     public static function IsNotEmail(string $email, string $property, string $messageIfFalse) {
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) Notification::SetNotification($property, $messageIfFalse);
     }
 
-    public static function IsNotEmailOrEmpty(string $email, string $property, string $messageIfFalse) {
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($email)) Notification::SetNotification($property, $messageIfFalse);
+    public static function IsNotEmailOrEmpty(string $email, string $property, string $message) {
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($email)) Notification::SetNotification($property, $message);
     }
 
     public static function IsUrl(string $url, string $property, string $messageIfFalse) {

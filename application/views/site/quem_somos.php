@@ -1,7 +1,10 @@
-<section class="clean-block about-us">
+<section class="clean-block about-us mt-5">
+
 	<div class="container justify-content-center">
 		<div class="block-heading container-fluid">
+
 			<h2 class="text-info text-center">Sobre a ACES</h2>
+
 			<p class="d-sm-flex justify-content-center text-center mb-3 text-light"><br>A ACES (American Culture English School)
 				foi o
 				nosso sonho durante muito tempo, desde que comecei a dar aulas no Brasil em 2000 sabíamos que
@@ -36,8 +39,7 @@
 			</div>
 		</div>
 
-		<button class="btn btn-block cc_pointer text-light" onclick="history.go(-1);">Voltar</button>
+		<button class="btn btn-block cc_pointer text-light"  onclick="history.go(-1);">Voltar</button>
 	</div>
 </section>
-
 

@@ -13,14 +13,13 @@
 	</div>
 
 	<div class="card-footer">
-		<button value="<?= base_url('app/likeordislike/save?postId='.$post->Id.'&likeOrDislike=1'); ?>"
+		<button
+				onclick="window.location.reload()"
+				value="<?= base_url('app/likeordislike/save?postId='.$post->Id.'&likeOrDislike=1'); ?>"
 				class="btn btn-sm btn-link text-success">
 			<i class="far fa-thumbs-up"></i> Like (<?= $post->TotalLikes; ?>)
 		</button>
-		<button value="<?= base_url('app/likeordislike/save?postId='.$post->Id.'&likeOrDislike=0'); ?>"
-				class="btn btn-sm btn-link text-danger">
-			<i class="far fa-thumbs-down"></i> Dislike (<?= $post->TotalDislikes; ?>)
-		</button>
+
 		<button
 				value="<?= base_url('app/posts/view?postMainId=' . $post->Id); ?>"
 				class="btn btn-sm btn-link"

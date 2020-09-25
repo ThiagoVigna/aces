@@ -1,6 +1,11 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Site extends AE_Controller{
+use AE\Entities\PersonEntity;
+use AE\Entities\CredentialsEntity;
+use DotFw\Infra\CrossCutting\Validation\Validator;
+use DotFw\Infra\CrossCutting\Helpers\Notification;
+
+class Site extends CI_Controller{
 
 	public $load;
 	public $form_validation;
@@ -12,19 +17,33 @@ class Site extends AE_Controller{
 		$this -> load -> helper('url');
 		$this -> load -> helper('form');
 		$this -> load -> library('form_validation');
+		$this -> load -> model('auth_model', 'authModel');
+
+
+		if(Notification::GetTotal() > 0):
+			var_dump(Notification::GetNotifications());
+			die;
+		endif;
 	}
 
-	public function index(){
+	public function index()
+	{
 		$dados[ 'titulo' ] = 'Aces English';
 		$this -> load -> view('site/form-login', $dados);
 	}
 
+	public function profile()
+	{
+		$dados[ 'titulo' ] = 'Aces English';
+		$this -> load -> view('site/profile/profile', $dados);
+	}
+
 	public function quem_somos()
 	{
-		$this->dataView['titulo'] = ' Quem Somos';
-		$this->dataView['subview'] = 'site/quem_somos';
+		$this -> dataView[ 'titulo' ] = ' Quem Somos';
+		$this -> dataView[ 'subview' ] = 'site/quem_somos';
 
-		$this -> load -> view('site/interface', $this->dataView);
+		$this -> load -> view('site/interface', $this -> dataView);
 	}
 
 	public function mapa()
@@ -64,5 +83,21 @@ class Site extends AE_Controller{
 
 		$dados[ 'titulo' ] = 'Aces English';
 		$this -> load -> view('contato', $dados);
+	}
+
+	public function register(){
+		$name			= $this->input->post('Name');
+		$surname		= $this->input->post('Surname');
+		$password		= $this->input->post('Password');
+		$passwordVerify = $this->input->post('Password2');
+		$email 			= $this->input->post('Email');
+
+		$personEntity = new PersonEntity(0, $name, $surname, 1);
+		$credentialEntity = new CredentialsEntity(0, 0, $email, $password, $passwordVerify, 1);
+
+		$resultSave = false;
+		if( Validator::IsValid() ) $resultSave = $this->authModel->save($personEntity, $credentialEntity);
+
+		var_dump(Notification::GetNotifications());
 	}
 }

@@ -10,8 +10,9 @@
 						 data-knob-dotimage=""
 						 data-knob-gradient1="#032467" data-knob-gradient2="red" data-knob-dotcolor="#f00"
 						 data-knob-color="#efefef" class="iesknob circle1 position-relative my-pic"></div>
-					<h4 class="mb-0 mt-0"><a href="#" class="text-body"><?= $this->auth->get_user_data('FullName'); ?></a></h4>
-					<a href="#" class="text-muted"><h6><?= $this->auth->get_user_data('Email'); ?></h6></a>
+					<h4 class="mb-0 mt-0"><a href="#"  class="text-body"><?= $this -> auth -> GetUserData('FullName'); ?></a>
+					</h4>
+					<a href="#" class="text-muted"><h6><?= $this -> auth -> GetUserData('Email'); ?></h6></a>
 					<hr>
 				</div>
 				<div class="col-4 text-center">

@@ -26,4 +26,12 @@ class Validator {
         if(empty($val)) Notification::SetNotification($property, $message);
     }
 
+	public static function AreEquals($val, $verify, string $property, string $messageIfFalse) {
+		if( $val == $verify) Notification::SetNotification($property, $messageIfFalse);
+	}
+
+	public static function AreNotEquals($val, $verify, string $property, string $messageIfFalse) {
+		if( $val != $verify) Notification::SetNotification($property, $messageIfFalse);
+	}
+
 }

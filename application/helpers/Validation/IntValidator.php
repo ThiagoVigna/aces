@@ -37,22 +37,4 @@ class IntValidator extends Validator {
             return false;
         endif;
     }
-
-    public static function AreEquals(int $val, int $compare, string $property, string $messageIfFalse) : bool{
-        if($val === $compare):
-            return true;
-        else:
-            Notification::SetNotification($property, $messageIfFalse);
-            return false;
-        endif;
-    }
-
-    public static function AreNotEquals(int $val, int $compare, string $property, string $messageIfFalse) : bool{
-        if($val !== $compare):
-            return true;
-        else:
-            Notification::SetNotification($property, $messageIfFalse);
-            return false;
-        endif;
-    }
 }

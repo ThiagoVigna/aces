@@ -1,238 +1,113 @@
 <?php
 
-/* Esta classe realiza automaticamente tarefas de autenticação de usuário no sistema. */
+use DotFw\Infra\CrossCutting\Helpers\Notification;
+use AE\Entities\CredentialsEntity;
+use DotFw\Service\Token;
+
 class Auth{
-
-	/**
-	 * Diretório que irá armazenar as fotos de clientes enviadas pelas contas.
-	 */
-	public $account_directory = NULL;
-
-	/**
-	 * Recupera e guarda para uso posterior todas as informações do núcleo do CodeIgniter
-	 * @properties object $CI
-	 */
 	private $CI;
 
+	private string $tokenName = "AEAUTH";
+
+	private CredentialsEntity $credentials;
+
+	private Token $token;
+
+	public function Authenticate(){
+		if( self::getPost() ):
+			$loginData = $this->CI->credentialsModel->login($this->credentials);
+
+			if(count($loginData) == 0):
+				Notification::SetNotification("Login", "Dados não encontrados no banco.");
+				self::kickOut();
+			endif;
+
+			$this->token->NewToken($loginData, null);
+		else:
+			self::kickOut();
+		endif;
+	}
+
+	private function kickOut(){ redirect(base_url()); }
+
+	public function Authorize(){
+		$token = $this->token->GetToken();
+
+		if(!$this->token->TokenIsValid($token)):
+			self::kickOut();
+		endif;
+	}
+
+	public function GetUserData($keyWord = null){
+		$userdata = (array) $this->token->GetData();
+		$userdata = (array) $userdata[0];
+
+		if(!empty($keyWord)):
+
+			return $userdata[$keyWord];
+		else:
+			return $userdata;
+		endif;
+	}
+
+	/** Gera um identificador único para este usuário e grava-o em cookie */
+	private function setUniqueId($dueDate){
+
+		if(is_null(self::getUniqueId())):
+			$uniquid = uniqid($dueDate);
+			$uniquid = md5($uniquid);
+			$this->uniquid = $uniquid;
+
+			setcookie($this->tokenName.'UID', $this->uniquid, $dueDate, '/');
+		else:
+			$this->uniquid = $_COOKIE[$this->tokenName.'UID'];
+		endif;
+	}
+
 	/**
-	 * Armazena os dados do usuário coletados no banco de dados
-	 * @properties object $user_data
+	 * Recupera o ID único desse usuário
+	 * @method string|null getUniqueId()
 	 */
-	public $user_data = NULL;
+	private function getUniqueId(){
+		if(isset($_COOKIE[$this->tokenName.'UID'])):
+			return $_COOKIE[$this->tokenName.'UID'];
+		elseif( !empty($this->uniquid) ):
+			return $this->uniquid;
+		else:
+			return null;
+		endif;
+	}
 
-	public $flash_data_message = NULL;
+	private function getPost(){
+		if( isset($_REQUEST['txt_auth_email']) && isset($_REQUEST['txt_auth_password']) ):
+			$email = $this->CI->input->post('txt_auth_email');
+			$password = $this->CI->input->post('txt_auth_password');
 
-	public $last_payment = NULL;
+			$this->credentials = new CredentialsEntity(0, 0, $email, $password, $password, 1);
 
-	public $account = NULL;
+			return true;
+		else:
+			Notification::SetNotification("Login", "Não foi recebido nada do formulário");
+			return false;
+		endif;
+	}
 
-	public $plan = NULL;
-
-	/**
-	 * Classe construtora que efetua todas as verificações de autenticação do usuário.
-	 * @method void __construct()
-	 * @return void
-	 * @access public
-	 */
 	function __construct() {
 		$this->CI = &get_instance();
 		$this->CI->load->helper('url', 'cookie');
 		$this->CI->load->database();
 		$this->CI->load->library(['session', 'form_validation']);
+
 		$this->CI->load->model('crud');
+		$this->CI->load->model('credentials_model', 'credentialsModel');
 
-		self::get_logged_account();
+		$timestamp = time()+60*60*8*1;
+
+		$this->setUniqueId($timestamp);
+		$jti = $this->getUniqueId();
+
+		$this->token = new Token($jti, $timestamp, base_url());
+
 	}
 
-	/**
-	 * Recupera os dados da conta logada no sistema
-	 * @method void get_logged_account()
-	 *
-	 */
-	public function get_logged_account(){
-
-		# 0. Verifica se o usuário está dentro da área restrita do sistema.
-		if ($this->CI->uri->segment(1) == 'app'):
-			# 1. Verifica se há dados enviados via POST ou guardados em SESSION
-			self::check_data_from_POST();
-			self::check_data_from_SESSION();
-
-			if (!self::check_data_session()): // Não há dados em sessão. Expulsa usuário.
-				self::write_log("Erro ao verificar os dados do usuário em POST ou SESSION. Usuário expulso.");
-				redirect(base_url());
-			else:
-				$sql = <<<SQL
-SELECT
-  		p.Id
-	,	CONCAT(p.First_Name, ' ', p.Last_Name) as FullName
-	,	c.Email
-FROM `credentials` c
-LEFT JOIN person p ON p.Id = c.PersonId
-
-WHERE
-		c.Email = "{$this->dataToAutentication['Email']}"
-	AND c.Password = "{$this->dataToAutentication['Password']}"
-	AND c.IsActive = 'YES'
-
-LIMIT 1
-SQL;
-
-				$result = $this->CI->db->query($sql);
-				$this->user_data = $result->row();
-
-				if( !is_null($this->flash_data_message) ) $this->CI->session->set_flashdata('notif', $this->flash_data_message);
-
-				// verifica se a consulta foi bem sucedida
-				if($this->CI->db->affected_rows() <= 0):
-					$this->flash_data_message = array(
-						'message' => 'Verifique suas credencias e tente novamente.',
-						'type' => 'danger'
-					);
-					$this->CI->session->set_flashdata('notif', $this->flash_data_message);
-					redirect(base_url());
-				endif;
-			endif;
-		endif;
-	}
-
-	/**
-	 * Determina se os logs do sistema estão ativos.
-	 * @property boolean $writeLogActive
-	 * @access private
-	 */
-	private $writeLogActive = TRUE;
-
-	/**
-	 * Escreve nos logs do sistema.
-	 * @method void write_log()
-	 * @param string $message
-	 * @param string $level
-	 * @access public
-	 */
-	public function write_log($message = 'Nenhuma mensagem', $level = 'error'){
-		if($this->writeLogActive == TRUE):
-			log_message($level, $message);
-		endif;
-	}
-
-	/* ---------------------------- A PARTIR DAQUI EFETUA AÇÕES RELACIONADAS À PROPRIEDADE "$data_session" ---------------------------- */
-
-	/**
-	 * Retorna o dado expecífico do usuário solicitado.
-	 * @method string get_user_data()
-	 * @param string $data <informa qual dado se deseja que seja retornado>
-	 * @return string
-	 * @access public
-	 */
-	public function get_user_data($data) {
-		return $this->user_data->$data;
-	}
-
-	/**
-	 * Armazena na memória os dados usados pelo cliente para realizar o login.
-	 * @properties Array $data_session
-	 */
-	private $dataToAutentication = array(
-		'Email' => NULL,
-		'Password' => NULL // senha já criptografada
-	);
-
-	/**
-	 * Guarda na propriedade "$data_session" os dados usados pelo cliente para fazer login
-	 * @method void set_data_session()
-	 * @return void
-	 * @param string $user_email
-	 * @param string $user_email
-	 * @param bool $encrypt_password
-	 * @access private
-	 */
-	private function set_data_session($user_email, $user_password, $encrypt_password = FALSE) {
-		// Seta dados em variavel para uso ainda nesta sessão
-		$this->dataToAutentication['Email'] = $user_email;
-		$this->dataToAutentication['Password'] = (!$encrypt_password) ? $user_password : md5($user_password);
-
-		// Armazena dados em sessão para uso posterior
-		$this->CI->session->set_userdata('email', $this->dataToAutentication['Email']);
-		$this->CI->session->set_userdata('password', (!$encrypt_password) ? $user_password : md5($user_password));
-	}
-
-	/**
-	 * Verifica os dados de sessão. Se estiverem TRUE, ou FALSE.
-	 * @method mixed check_data_session()
-	 * @return mixed
-	 */
-	private function check_data_session(){
-		return ($this->dataToAutentication['Email'] == NULL or $this->dataToAutentication['Password'] == NULL) ? FALSE : TRUE;
-	}
-
-	/**
-	 * Limpa os dados armazenados em memória pela variável "$data_session" e também os dados armazenados em sessão.
-	 * @method void clear_data_session()
-	 */
-	public function clear_data_session(){
-		unset($this->dataToAutentication);
-		$this->CI->session->sess_destroy(); // removo qualquer vestígio de dados em SESSION
-	}
-
-
-	/* ---------------------------- A PARTIR DAQUI VERIFICA SE HÁ DADOS ENVIADOS VIA "POST" OU "SESSION" ---------------------------- */
-
-	/**
-	 * Verifica se há dados armazenados em sessão
-	 * @method boolean check_data_from_SESSION()
-	 * @return boolean
-	 */
-	private function check_data_from_SESSION() {
-		// recupera informações
-		$sess['email'] = $this->CI->session->userdata('email');
-		$sess['password'] = $this->CI->session->userdata('password');
-
-		/* valida */
-		if ($sess['email'] == NULL or $sess['password'] == NULL):
-			self::write_log("--- Não há dados em sessão. ---");
-			return FALSE;
-		else:
-			$this->set_data_session($sess['email'], $sess['password']);
-			self::write_log("--- Dados em sessão encontrados. ---", 'info');
-			return TRUE;
-		endif;
-	}
-
-	/**
-	 * Verifica se há dados armazenados em sessão
-	 * @method boolean check_data_from_POST()
-	 * @return boolean
-	 */
-	private function check_data_from_POST() {
-		// recupera informações
-		$sess['email'] = $this->CI->input->post('txt_auth_email', TRUE);
-		$sess['password'] = $this->CI->input->post('txt_auth_password', TRUE);
-
-		/* valida */
-		if ($sess['email'] == NULL or $sess['password'] == NULL):
-			return FALSE;
-		else:
-			$this->set_data_session($sess['email'], $sess['password'], TRUE);
-			return TRUE;
-		endif;
-	}
-
-	private function get_account(){
-		$this->account = $this->CI->crud->consult('account', ['account_id'=>$this->user_data->account_id], TRUE);
-
-		if($this->account != FALSE):
-			$this->account_directory = "public/account_".$this->user_data->account_id;;
-			if( !file_exists($this->account_directory) ):
-				mkdir($this->account_directory, 0755, TRUE);
-			endif;
-		endif;
-	}
-
-	public function get_account_data($data){
-		if( $this->account == NULL ):
-			return NULL;
-		else:
-			return $this->account->$data;
-		endif;
-	}
-};
+}

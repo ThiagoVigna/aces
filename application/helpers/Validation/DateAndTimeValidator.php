@@ -5,41 +5,6 @@ use DotFw\Infra\CrossCutting\Helpers\Notification;
 
 /* Realiza validações com datas */
 class DateAndTimeValidator extends Validator {
-
-    /**
-     * Compara se uma data é igual a outra. Se o resultado for VERDADEIRO, emite alerta.
-     * @method AreEquals(string $date, string $dateCompare, string $property, string $messageIfFalse)
-     * @param string $date
-     * @param string $dateCompare
-     * @param string $property
-     * @param string $message
-     */
-    public static function AreEquals(string $date, string $dateCompare, string $property, string $message) {
-        $date = new DateTime($date);
-        $dateCompare = new DateTime($dateCompare);
-
-        if($date->getTimestamp() == $dateCompare->getTimestamp()):
-            Notification::SetNotification($property, $message);
-        endif;
-    }
-
-    /**
-     * Compara se uma data não é igual a outra. Se o resultado for VERDADEIRO, emite alerta.
-     * @method AreNotEquals(string $date, string $dateCompare, string $property, string $messageIfFalse)
-     * @param string $date
-     * @param string $dateCompare
-     * @param string $property
-     * @param string $message
-     */
-    public static function AreNotEquals(string $date, string $dateCompare, string $property, string $message) {
-        $date = new DateTime($date);
-        $dateCompare = new DateTime($dateCompare);
-
-        if($date->getTimestamp() != $dateCompare->getTimestamp()):
-            Notification::SetNotification($property, $message);
-        endif;
-    }
-
     /**
      * Compara se uma data maior que a outra. Se o resultado for VERDADEIRO, emite alerta.
      * @method IsGreaterThan(string $date, string $dateCompare, string $property, string $message)
