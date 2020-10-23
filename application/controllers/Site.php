@@ -1,9 +1,9 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-use AE\Entities\PersonEntity;
 use AE\Entities\CredentialsEntity;
-use DotFw\Infra\CrossCutting\Validation\Validator;
+use AE\Entities\PersonEntity;
 use DotFw\Infra\CrossCutting\Helpers\Notification;
+use DotFw\Infra\CrossCutting\Validation\Validator;
 
 class Site extends CI_Controller{
 
@@ -34,8 +34,9 @@ class Site extends CI_Controller{
 
 	public function profile()
 	{
-		$dados[ 'titulo' ] = 'Aces English';
-		$this -> load -> view('site/profile/profile', $dados);
+		$this -> dataView[ 'titulo' ] = ' Perfil';
+		$this -> dataView[ 'subview' ] = 'profile/interface';
+		$this -> load -> view('profile/interface', $this -> dataView);
 	}
 
 	public function quem_somos()
@@ -98,6 +99,6 @@ class Site extends CI_Controller{
 		$resultSave = false;
 		if( Validator::IsValid() ) $resultSave = $this->authModel->save($personEntity, $credentialEntity);
 
-		var_dump(Notification::GetNotifications());
+//		var_dump(Notification::GetNotifications());
 	}
 }

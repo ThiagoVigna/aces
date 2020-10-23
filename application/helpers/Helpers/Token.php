@@ -39,9 +39,9 @@ class Token {
 
 			'exp' => $this->ExpireToken,    // o token é válido até (timestamp)
 			'nbf' => (time() - 1),          // o token não é válido antes de (timestamp)
-			'iat' => time(),                // criação do token (data timestamp)
+			'iat' => time(),                  // criação do token (data timestamp)
 
-			'jti' => $this->jti, // identificador único desse token
+			'jti' => $this->jti,               // identificador único desse token
 
 			'data' => $data,                  // dados de identificação do usuário
 			'claims' => $claims,               // permissões de acesso
@@ -121,15 +121,15 @@ class Token {
 
 	public $Header;
 	private $payload;
-	private string $signature;
-	private Cipher $cipher;
+    private string $signature;
+    private Cipher $cipher;
 
-	/** @property string $jti Identificador único */
-	private $jti;
+    /** @property string $jti Identificador único */
+    private $jti;
 
-	public int $ExpireToken;
-	public ?string $Errors = null;
+    public int $ExpireToken;
+    public ?string $Errors = null;
 
-	private string $domain;
-	private bool $secure;
+    private string $domain;
+    private bool $secure;
 }

@@ -376,7 +376,6 @@ var LibCRUD = {
 		setInterval(function () {
 			_iesKnob.init("force");
 		}, 3000);
-
 	}
 
 };

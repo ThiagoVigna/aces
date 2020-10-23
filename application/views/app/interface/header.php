@@ -59,10 +59,10 @@
         </span>
 			</a>
 			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="profile_dropdown">
-				<a class="dropdown-item" href="#">
+				<a class="dropdown-item" href="<?= base_url('app'); ?>">
 					<i class="fas fa-home"></i> Home
 				</a>
-				<a class="dropdown-item" href="<?= base_url('site/profile/interface') ?>">
+				<a class="dropdown-item" href="<?= base_url('site/profile') ?>">
 					<i class="fas fa-user"></i> Perfil
 				</a>
 				<div class="dropdown-divider"></div>

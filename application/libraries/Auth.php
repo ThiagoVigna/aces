@@ -38,7 +38,11 @@ class Auth{
 		endif;
 	}
 
-	public function GetUserData($keyWord = null){
+	/**
+	 * @param null $keyWord
+	 * @return array|mixed
+	 */
+	public function GetUserData( $keyWord = null){
 		$userdata = (array) $this->token->GetData();
 		$userdata = (array) $userdata[0];
 

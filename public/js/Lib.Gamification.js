@@ -253,7 +253,6 @@ var LibGamification = {
 		setInterval(function () {
 			_iesKnob.init("force");
 		}, 3000);
-
 	}
 
 };

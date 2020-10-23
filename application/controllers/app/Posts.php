@@ -1,13 +1,17 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
+
 use DotFw\Infra\CrossCutting\Validation\Validator;
 use \DotFw\Infra\CrossCutting\Validation\StringValidator;
 use \DotFw\Infra\CrossCutting\Helpers\Notification;
 
 
+
 class Posts extends AE_Controller{
 
-	public function view(){
+	public $input;
+
+    public function view(){
 		$dataview['postMainId'] = $this->input->get('postMainId');
 		$dataview['post'] = $this->postsmodel->getOne($dataview['postMainId']);
 		$dataview['lastPosts'] = $this->postsmodel->lastPosts($dataview['postMainId']);
@@ -16,10 +20,10 @@ class Posts extends AE_Controller{
 
 	public function save(){
 		$message = $this->input->post('Message');
-		$personId = $this->auth->get_user_data('Id');
+		$personId = $this->auth->GetUserData('Id');
 		$postMainId = $this->input->post('PostMainId');
 
-		StringValidator::IsNullOrEmpty($message, "Message", "The message is empty.");
+		Validator::IsNullOrEmpty($message, "Message", "The message is empty.");
 		StringValidator::HasMinLen($message, 20, "Message", "The message must be at least 20 characters long.");
 		StringValidator::HasMaxLen($message, 500, "Message", "The message must be a maximum of 500 characters.");
 
