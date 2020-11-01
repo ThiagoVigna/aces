@@ -11,12 +11,12 @@ class StringValidator extends Validator{
         if(is_null($val) || empty($val)) Notification::SetNotification($property, $messageIfFalse);
     }
 
-    public static function HasMinLen(string $val, int $min, string $property, string $messageIfFalse) {
+    public static function HasMinLen($val, int $min, string $property, string $messageIfFalse) {
         if(strlen($val) < $min) Notification::SetNotification($property, $messageIfFalse);
     }
 
     /* Notifica se passar da quantidade máxima de caracteres permitidos. */
-    public static function HasMaxLen(string $val, int $max, string $property, string $message) {
+    public static function HasMaxLen($val, int $max, string $property, string $message) {
         if(strlen($val) > $max) Notification::SetNotification($property, $message);
     }
 

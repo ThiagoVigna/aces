@@ -4,6 +4,7 @@ use DotFw\Infra\CrossCutting\Validation\StringValidator;
 use DotFw\Infra\CrossCutting\Validation\Validator;
 use DotFw\Service\Cipher;
 
+
 class CredentialsEntity{
 
 	#region PROPRIEDADES PÚBLICAS - Iníciam-se com a letra maiúscula.

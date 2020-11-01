@@ -4,6 +4,7 @@ use DotFw\Infra\CrossCutting\Helpers\Notification;
 use AE\Entities\CredentialsEntity;
 use DotFw\Service\Token;
 
+
 class Auth{
 	private $CI;
 
@@ -12,6 +13,10 @@ class Auth{
 	private CredentialsEntity $credentials;
 
 	private Token $token;
+
+	public function index(){
+	    
+    }
 
 	public function Authenticate(){
 		if( self::getPost() ):
@@ -47,7 +52,6 @@ class Auth{
 		$userdata = (array) $userdata[0];
 
 		if(!empty($keyWord)):
-
 			return $userdata[$keyWord];
 		else:
 			return $userdata;
@@ -103,6 +107,7 @@ class Auth{
 		$this->CI->load->library(['session', 'form_validation']);
 
 		$this->CI->load->model('crud');
+		$this->CI->load->model('auth_model');
 		$this->CI->load->model('credentials_model', 'credentialsModel');
 
 		$timestamp = time()+60*60*8*1;

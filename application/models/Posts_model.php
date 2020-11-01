@@ -10,14 +10,16 @@ class Posts_model extends CI_Model{
 		return $query->row();
 	}
 
-	/**
-	 * Salva ou atualiza um post no banco de dados
-	 * @method bool save( int $personId, string $message, int $id = null, int $communityId = null)
-	 * @param int $personId
-	 * @param string $message
-	 * @param int $id
-	 * @param int|null $communityId
-	 */
+    /**
+     * Salva ou atualiza um post no banco de dados
+     * @method bool save(int $personId, string $message, int $id = null, int $communityId = null)
+     * @param int $personId
+     * @param string $message
+     * @param int $postMainId
+     * @param int $id
+     * @param int|null $communityId
+     * @return bool
+     */
 	public function save( int $personId, string $message, $postMainId = 0, int $id = 0, int $communityId = null) : bool{
 		$this->db->set('PersonId', $personId);
 		$this->db->set('Message', $message);
