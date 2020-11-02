@@ -21,7 +21,7 @@ class StringValidator extends Validator{
     }
 
     public static function HasLen(string $val, int $len, string $property, string $messageIfFalse) {
-        if(strlen($val) == $len) Notification::SetNotification($property, $messageIfFalse);
+        if(strlen($val) != $len) Notification::SetNotification($property, $messageIfFalse);
     }
 
     public static function Contains(string $val, string $text, string $property, string $messageIfFalse) {

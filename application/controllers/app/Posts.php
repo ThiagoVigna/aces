@@ -13,10 +13,10 @@ class Posts extends AE_Controller
 
     public function view()
     {
-        $dataview[ 'postMainId' ] = $this -> input -> get('postMainId');
-        $dataview[ 'post' ] = $this -> postsmodel -> getOne($dataview[ 'postMainId' ]);
-        $dataview[ 'lastPosts' ] = $this -> postsmodel -> lastPosts($dataview[ 'postMainId' ]);
-        $this -> load -> view('app/posts/view', $dataview);
+        $this->dataView[ 'postMainId' ] = $this -> input -> get('postMainId');
+        $this->dataView[ 'post' ] = $this -> postsmodel -> getOne($this->dataView[ 'postMainId' ]);
+        $this->dataView[ 'lastPosts' ] = $this -> postsmodel -> lastPosts($this->dataView[ 'postMainId' ]);
+        $this -> load -> view('app/posts/view', $this->dataView);
     }
 
 
@@ -25,7 +25,6 @@ class Posts extends AE_Controller
         $message = $this -> input -> post('Message');
         $personId = $this -> auth -> GetUserData('UserId');
         $postMainId = $this -> input -> post('PostMainId');
-
 
         Validator ::IsNullOrEmpty($message, "Message", "The message is empty.");
         StringValidator ::HasMinLen($message, 20, "Message", "The message must be at least 20 characters long.");
@@ -53,9 +52,9 @@ class Posts extends AE_Controller
 
 	/* Alista os últimos posts conforme requisitado pelo usuário. */
 	public function index(){
-		$dataview['lastPosts'] = $this->postsmodel->lastPosts();
+		$this->dataView['lastPosts'] = $this->postsmodel->lastPosts();
 
-		$this->load->view('app/posts/list', $dataview);
+		$this->load->view('app/posts/list', $this->dataView);
 	}
 
 	function __construct(){

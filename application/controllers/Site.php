@@ -34,7 +34,7 @@ class Site extends CI_Controller{
 
 	public function profile()
 	{
-//		$this -> dataView[ 'titulo' ] = ' Perfilasdasdasdasd';
+//		$this -> dataView[ 'titulo' ] = ' Perfil';
         $dados[ 'titulo' ] = 'ACES English - Perfil';
 		$this -> load -> view('profile/interface', $dados);
 	}
