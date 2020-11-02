@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
 use  \AE\Entities\PersonEntity;
+use DotFw\Infra\CrossCutting\Helpers\Notification;
 
 class AE_Controller extends CI_Controller{
 
@@ -18,8 +19,11 @@ class AE_Controller extends CI_Controller{
 
     private function getUserData(){
         $this->load->model('Person_model', 'personmodel');
-        $person = new PersonEntity();
-        $person->Id = $this->auth->GetUserData('UserId');
+        $id = $this->auth->GetUserData('UserId');
+        $name = $this->auth->GetUserData('FullName');
+
+        $person = new PersonEntity($id, $name, $name);
+        Notification::DeleteAll(); /*Deleta todas as notificações existentes */
         return $this->personmodel->GetPerson($person);
     }
 
