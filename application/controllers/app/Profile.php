@@ -63,11 +63,11 @@ class Profile extends AE_Controller{
                 ->Run();
         else:
             $this
-                ->rest
-                ->Code(500)
-                ->Result(Notification::GetNotifications())
-                ->Message("Houve erros ao salvar os dados. Veja as notificações.")
-                ->Run();
+                -> rest
+                -> Code(500)
+                -> Result(Notification ::GetNotifications())
+                -> Message("Houve erros ao salvar os dados. Veja as notificações.")
+                -> Run();
         endif;
 
     }

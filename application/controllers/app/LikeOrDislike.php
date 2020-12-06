@@ -5,17 +5,15 @@ class LikeOrDislike extends AE_Controller {
 	public function index(){}
 
 	public function save(){
-		$type = $this->input->get('likeOrDislike');
 		$postId = $this->input->get('postId');
-		$personId = $this->auth->get_user_data('Id');
-		$result = $this->ldmodel->save($personId, $type, $postId);
-	}
+		$personId = $this->auth->GetUserData('UserId');
+		$result = $this->ldmodel->save($personId, $postId);
 
-	public function delete(){
-		$type = $this->input->get('likeOrDislike');
-		$postId = $this->input->get('postId');
-		$personId = $this->auth->get_user_data('Id');
-		$result = $this->ldmodel->delete($personId, $type, $postId);
+        if($result->TotalLikes > 0):
+            $this->rest->Code(200)->Result($result)->Message("Like registrado com sucesso.")->Run();
+        else:
+            $this->rest->Code(500)->Result($result)->Message("Houve um erro ao cadastrar o like.")->Run();
+        endif;
 	}
 
 	public function __construct() {

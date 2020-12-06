@@ -379,7 +379,32 @@ var LibCRUD = {
 	}
 
 };
-;var LibNight = {
+;var LibImage = {
+    init: function (){
+        ScreenUploadPhoto.ListenChangePhoto();
+    },
+
+    convertToBase64: (input) => {
+        //Read File
+        var selectedFile = input.files;
+        //Check File is not Empty
+        if (selectedFile.length > 0) {
+            // Select the very first file from list
+            var fileToLoad = selectedFile[0];
+            // FileReader function for read the file.
+            var fileReader = new FileReader();
+            var base64;
+            // Onload of file read the file content
+            fileReader.onload = function(fileLoadedEvent) {
+                base64 = fileLoadedEvent.target.result;
+                // Print data in console
+                console.log(base64);
+            };
+            // Convert data to base64
+            fileReader.readAsDataURL(fileToLoad);
+        }
+    }
+};var LibNight = {
 	init: function(){
 		/*LibNight.init();*/
 	},
@@ -437,7 +462,43 @@ var LibCRUD = {
 	},
 
 }
-;var Screen = {
+;var ScreenPost = {
+    init: () => {
+        ScreenPost.setLikeOrDislike();
+    },
+
+    setLikeOrDislike: () => {
+        $(document).on('click', '.set-like', function () {
+            var url = $(this).val();
+            var likeId = 'likeId' + $(this).data('likeId');
+
+
+            /*
+            TODO: pesquisar o porque de não contabilizar automaticamente. Provavelmente porque o conteúdo está sendo carregado
+            automaticamente via AJAX. Ver se é possível fazer por "on".
+             */
+
+            $.getJSON(url, function (result) {
+                $(likeId).html(result.TotalLikes);
+                location.reload();
+            });
+
+        });
+
+    },
+
+};var ScreenUploadPhoto = {
+    init: function (){
+        ScreenUploadPhoto.ListenChangePhoto();
+    },
+
+    ListenChangePhoto: function(){
+        $('.photoUpload').change(function(){
+            var form = $(this).data('form');
+            $('#' + form).submit();
+        });
+    }
+};var Screen = {
 	init: function (){
 		Screen.ClearLog();
 		Screen.Modal();
@@ -500,7 +561,9 @@ LibGamification.init();
 LibNight.init();
 LibComponent.init();
 Screen.init();
+ScreenUploadPhoto.init();
 LibNotification.init();
 LibCRUD.init();
+ScreenPost.init();
 
 console.log("[Main.js] Scripts carregados.");

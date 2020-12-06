@@ -11,6 +11,8 @@ SELECT
 		
 	,	CONCAT(p.First_Name, ' ', p.Last_Name ) AS FullName
 	,	p.Id AS UserId
+    ,   p.Photo_Profile
+    ,   p.Photo_Main
 		
 FROM credentials c
 JOIN person p ON p.Id = c.PersonId

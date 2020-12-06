@@ -33,7 +33,9 @@ class PersonEntity {
         string $Address_City = NULL,
         string $Address_Zipcode = NULL,
         string $Address_State = NULL,
-        string $Phone_Cell = NULL
+        string $Phone_Cell = NULL,
+        string $Photo_Profile = NULL,
+        string $Photo_Main = NULL
 	){
 		StringValidator::IsEmpty($First_Name, 'Primeiro nome', 'O primeiro nome não pode ser vazio');
 		StringValidator::IsEmpty($Last_Name, 'Segundo nome', 'O segundo nome não pode ser vazio');

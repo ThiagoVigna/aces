@@ -93,7 +93,7 @@ class Site extends CI_Controller{
 		$passwordVerify = $this->input->post('Password2');
 		$email 			= $this->input->post('Email');
 
-		$personEntity = new PersonEntity(0, $name, $surname, 1);
+		$personEntity = new PersonEntity(0, $name, $surname, 1 );
 		$credentialEntity = new CredentialsEntity(0, 0, $email, $password, $passwordVerify, 1);
 
 		$resultSave = false;

@@ -18,24 +18,24 @@
 						<span class="d-sm-block d-md-none">Home</span>
 					</a>
 				</li>
-				<li class="nav-item" role="presentation">
-					<a href="/" class="btn btn-link border-0">
-						<span class="d-none d-sm-none d-md-block">
-							<img src="<?= base_url('public/images/icons-alerts.png') ?>">
-							<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>
-						</span>
-						<span class="d-sm-block d-md-none">Alerta</span>
-					</a>
-				</li>
-				<li class="nav-item" role="presentation">
-					<a href="/" class="btn btn-link border-0">
-						<span class="d-none d-sm-none d-md-block">
-							<img src="<?= base_url('public/images/icons-mail.png') ?>">
-							<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>
-						</span>
-						<span class="d-sm-block d-md-none">Email</span>
-					</a>
-				</li>
+<!--				<li class="nav-item" role="presentation">-->
+<!--					<a href="/" class="btn btn-link border-0">-->
+<!--						<span class="d-none d-sm-none d-md-block">-->
+<!--							<img src="--><?//= base_url('public/images/icons-alerts.png') ?><!--">-->
+<!--							<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>-->
+<!--						</span>-->
+<!--						<span class="d-sm-block d-md-none">Alerta</span>-->
+<!--					</a>-->
+<!--				</li>-->
+<!--				<li class="nav-item" role="presentation">-->
+<!--					<a href="/" class="btn btn-link border-0">-->
+<!--						<span class="d-none d-sm-none d-md-block">-->
+<!--							<img src="--><?//= base_url('public/images/icons-mail.png') ?><!--">-->
+<!--							<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>-->
+<!--						</span>-->
+<!--						<span class="d-sm-block d-md-none">Email</span>-->
+<!--					</a>-->
+<!--				</li>-->
 			</ul>
 		</div>
 	</div>
@@ -70,11 +70,6 @@
 					<i class="fas fa-cog"></i> Configuração
 				</a>
 				<hr>
-				<div class="toggle-container">
-					<h6>Modo escuro</h6>
-					<input type="checkbox" id="switch" name="theme"/><label for="switch"></label>
-				</div>
-
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="<?= base_url(); ?>">
 					<i class="fas fa-sign-out-alt"></i> Sair

@@ -28,4 +28,16 @@ class Person_model  extends CI_Model{
 	    $data = $this->db->get('person');
 	    return $data->row();
     }
+
+    public function saveModelPerfil($Id, $PhotoAdress){
+	    $this->db->set('Photo_Profile', $PhotoAdress);
+        $this->db->where('Id', $Id);
+        $this->db->update('person');
+	}
+
+    public function saveModelMain($Id, $PhotoAdress){
+        $this->db->set('Photo_Main', $PhotoAdress);
+        $this->db->where('Id', $Id);
+        $this->db->update('person');
+    }
 }

@@ -1,34 +1,51 @@
 <div class="row">
+
     <div class="col-md-6">
-        <div class="card shadow mb-3 radio">
-            <div class="card-body text-center">
-                <img
-                        class="rounded-circle mb-3 mt-4"
-                        src="https://picsum.photos/200/200?random"
-                        height="160"
-                        height="auto"
-                >
+        <form action="<?= base_url('app/upload/profile'); ?>" method="post" id="frmPhotoProfile"
+              enctype="multipart/form-data">
+            <div class="card shadow mb-3 radio">
+
+                <div class="card-body text-center">
+                    <img
+                            class="card-img-top mw-50 mb-3 mt-4 radio"
+                            src="<?= base_url("storage/users/" . $this -> auth -> GetUserData('UserId') . "/" . $this -> auth -> GetUserData('Photo_Profile')) ?>?updated=<?= date('his'); ?>"
+                            width="100%"
+                            height="150"
+                    >
+                </div>
+                <div class="card-footer text-center">
+                   <input type="file" name="photo" id="photoProfile" class="photoUpload d-none" data-form="frmPhotoProfile">
+
+                    <label for="photoProfile" class="btn btn-primary btn-block">
+                        Alterar foto de perfil
+                    </label>
+                </div>
             </div>
-            <div class="card-footer text-center">
-                <button class="btn btn-primary btn-sm" type="button">Alterar foto de perfil</button>
-            </div>
-        </div>
+        </form>
     </div>
+
     <div class="col-md-6">
-        <div class="card shadow mb-3 radio">
-            <div class="card-body text-center">
-                <img
-                        class="card-img-top mw-50 mb-3 mt-4 radio"
-                        src="https://picsum.photos/800/400?image=10"
-                        width="160"
-                        height="auto"
-                >
+        <form action="<?= base_url('app/upload/main'); ?>" method="post" id="frmPhotoMain"
+              enctype="multipart/form-data">
+            <div class="card shadow mb-3 radio">
+                <div class="card-body text-center">
+                    <img
+                            class="card-img-top mw-50 mb-3 mt-4 radio"
+                            src="<?= base_url("storage/users/" . $this -> auth -> GetUserData('UserId') . "/" . $this -> auth -> GetUserData('Photo_Main')) ?>?updated=<?= date('his'); ?>"
+                            width="100%"
+                            height="150"
+                    >
+                </div>
+                <div class="card-footer text-center">
+                    <input type="file" name="main" id="photoMain" class="photoUpload d-none" data-form="frmPhotoMain">
+
+                    <label for="photoMain" class="btn btn-primary btn-block">
+                        Alterar foto de perfil
+                    </label>
+                </div>
             </div>
-            <div class="card-footer text-center">
-                <button class="btn btn-primary btn-sm" type="button">Alterar foto de capa</button>
-            </div>
-        </div>
     </div>
+    </form>
 </div>
 
 <div class="card shadow mb-3 radio">
