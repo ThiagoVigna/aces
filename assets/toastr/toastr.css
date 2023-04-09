@@ -229,3 +229,8 @@ button.toast-close-button {
 #toast-container > div {
 	opacity: 1;
 }
+
+.label-form{
+	margin-bottom: 0%;
+	font-size: xx-small;
+}

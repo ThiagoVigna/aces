@@ -18,37 +18,37 @@
 						<span class="d-sm-block d-md-none">Home</span>
 					</a>
 				</li>
-<!--				<li class="nav-item" role="presentation">-->
-<!--					<a href="/" class="btn btn-link border-0">-->
-<!--						<span class="d-none d-sm-none d-md-block">-->
-<!--							<img src="--><?//= base_url('public/images/icons-alerts.png') ?><!--">-->
-<!--							<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>-->
-<!--						</span>-->
-<!--						<span class="d-sm-block d-md-none">Alerta</span>-->
-<!--					</a>-->
-<!--				</li>-->
-<!--				<li class="nav-item" role="presentation">-->
-<!--					<a href="/" class="btn btn-link border-0">-->
-<!--						<span class="d-none d-sm-none d-md-block">-->
-<!--							<img src="--><?//= base_url('public/images/icons-mail.png') ?><!--">-->
-<!--							<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>-->
-<!--						</span>-->
-<!--						<span class="d-sm-block d-md-none">Email</span>-->
-<!--					</a>-->
-<!--				</li>-->
+				<!-- <li class="nav-item" role="presentation">
+					<a href="/" class="btn btn-link border-0">
+						<span class="d-none d-sm-none d-md-block">
+							<img src="<?= base_url('public/images/icons-alerts.png') ?>">
+							<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>
+						</span>
+						<span class="d-sm-block d-md-none">Alerta</span>
+					</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a href="/" class="btn btn-link border-0">
+						<span class="d-none d-sm-none d-md-block">
+							<img src="<?= base_url('public/images/icons-mail.png') ?>">
+							<sub><span class="badge badge-pill badge-danger badge-with-icon">123</span></sub>
+						</span>
+						<span class="d-sm-block d-md-none">Email</span>
+					</a>
+				</li> -->
 			</ul>
 		</div>
 	</div>
-	<!---->
-	<!--	<form class="form-inline ml-auto">-->
-	<!---->
-	<!--		<div class="input-group">-->
-	<!--			<input type="text" class="form-control" placeholder="Busca" aria-label="Search" aria-describedby="search">-->
-	<!--			<div class="input-group-append">-->
-	<!--				<a href="#" class="btn btn-info"><i class="fas fa-search"></i></a>-->
-	<!--			</div>-->
-	<!--		</div>-->
-	<!--	</form>-->
+<!-- 	
+		<form class="form-inline ml-auto">
+	
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Busca" aria-label="Search" aria-describedby="search">
+				<div class="input-group-append">
+					<a href="#" class="btn btn-info"><i class="fas fa-search"></i></a>
+				</div>
+			</div>
+		</form> -->
 
 	<ul class="navbar-nav d-none d-sm-none d-md-block">
 		<li class="nav-item dropdown">

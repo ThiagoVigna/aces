@@ -7,9 +7,13 @@ use  \AE\Entities\PersonEntity;
 
 class Profile extends AE_Controller{
 
+	public $auth;
+	public $personmodel;
+	public $input;
+	public $rest;
+
     function __construct(){
         parent ::__construct();
-
         $this->load->model('Person_model', 'personmodel');
     }
 
@@ -18,7 +22,6 @@ class Profile extends AE_Controller{
         $person->Id = $this->auth->GetUserData('UserId');
 
         $this->dataView['user'] = $this->personmodel->GetPerson($person);
-
         $this->dataView['titulo'] = 'ACES English - User profile';
         $this->dataView['subview'] = 'app/profile/form';
         $this->load->view('app/interface/interface', $this->dataView);
@@ -69,7 +72,5 @@ class Profile extends AE_Controller{
                 -> Message("Houve erros ao salvar os dados. Veja as notificações.")
                 -> Run();
         endif;
-
     }
-
 }

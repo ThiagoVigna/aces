@@ -28,7 +28,8 @@ class AuthBKP{
 	 */
 	function __construct() {
 		$this->CI = &get_instance();
-		$this->CI->load->helper('url', 'cookie');
+		$this->CI->load->helper('url');
+		$this->CI->load->helper('cookie');
 		$this->CI->load->database();
 		$this->CI->load->library(['session', 'form_validation']);
 		$this->CI->load->model('crud');
@@ -131,20 +132,34 @@ SQL;
 
 	private CredentialsEntity $credentials;
 
+	// /**
+	//  * Guarda na propriedade "$data_session" os dados usados pelo cliente para fazer login
+	//  * @method void set_data_session()
+	//  * @return void
+	//  * @param string $user_email
+	//  * @param string $user_email
+	//  * @param bool $encrypt_password
+	//  * @access private
+	//  */
+	// private function set_data_session() {
+	// 	// Armazena dados em sessão para uso posterior
+	// 	$this->CI->session->set_userdata('email', $this->credentials->Email);
+	// 	$this->CI->session->set_userdata('password', $this->credentials->Password);
+	// }
 	/**
-	 * Guarda na propriedade "$data_session" os dados usados pelo cliente para fazer login
-	 * @method void set_data_session()
-	 * @return void
-	 * @param string $user_email
-	 * @param string $user_email
-	 * @param bool $encrypt_password
-	 * @access private
-	 */
-	private function set_data_session() {
-		// Armazena dados em sessão para uso posterior
-		$this->CI->session->set_userdata('email', $this->credentials->Email);
-		$this->CI->session->set_userdata('password', $this->credentials->Password);
-	}
+ * Guarda na propriedade "$data_session" os dados usados pelo cliente para fazer login
+ * @method void set_data_session(string $email, string $password)
+ * @param string $email Email do usuário
+ * @param string $password Senha do usuário
+ * @access private
+ * @return void
+ */
+private function set_data_session($email, $password) {
+	// Armazena dados em sessão para uso posterior
+	$this->CI->session->set_userdata('email', $email);
+	$this->CI->session->set_userdata('password', $password);
+}
+
 
 	/**
 	 * Verifica os dados de sessão. Se estiverem TRUE, ou FALSE.
@@ -204,7 +219,7 @@ SQL;
 		if ($this->credentials->Email == NULL or $this->credentials->Password == NULL):
 			return FALSE;
 		else:
-			$this->set_data_session();
+			$this->set_data_session($this->credentials->Email, $this->credentials->Password);
 			return TRUE;
 		endif;
 	}

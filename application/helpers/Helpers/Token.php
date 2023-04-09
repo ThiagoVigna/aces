@@ -5,16 +5,17 @@ use DotFw\Infra\CrossCutting\Helpers\Notification;
 class Token {
 
 	private $tokenName = 'AUTH-TOKEN';
+    private ?string $tokenData = null; // Adicione essa linha
 
-	/** Verifica se existe um token de autenticação */
-	public function GetToken(){
-		if(isset($_COOKIE[$this->tokenName])) :
-			$this->tokenData = $_COOKIE[$this->tokenName];
-			return $this->tokenData;
-		else:
-			return null;
-		endif;
-	}
+    /** Verifica se existe um token de autenticação */
+    public function GetToken(){
+        if(isset($_COOKIE[$this->tokenName])) :
+            $this->tokenData = $_COOKIE[$this->tokenName];
+            return $this->tokenData;
+        else:
+            return null;
+        endif;
+    }
 
 	public function GetClaims(){
 		return $this->payload->claims;

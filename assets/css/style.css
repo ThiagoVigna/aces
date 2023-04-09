@@ -199,7 +199,7 @@
     color: #fff;
     margin-top: 10px;
     cursor: pointer;
-    /*Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a9e4f7+0,1410ea+100*/
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a9e4f7+0,1410ea+100; */
     background: rgb(169,228,247); /* Old browsers */
     background: -moz-linear-gradient(top,  rgba(169,228,247,1) 0%, rgba(20,16,234,1) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top,  rgba(169,228,247,1) 0%,rgba(20,16,234,1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -257,6 +257,15 @@ background text
 }
 .cont_forms_active_sign_up {
     z-index: 2;
+}
+
+@keyframes animar_fondo {
+    from {
+        transform: scale(1) translate(0px);
+    }
+    to {
+        transform: scale(1.5) translate(50px);
+    }
 }
 
 @-webkit-keyframes animar_fondo {
@@ -338,8 +347,8 @@ background text
 .cont_forms_active_login {
     z-index: 2;
 }
-.cont_forms_active_login > .cont_form_login {
-}
+/* .cont_forms_active_login > .cont_form_login {
+} */
 
 .cont_form_sign_up {
     position: absolute;
